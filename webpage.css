@@ -1,0 +1,35 @@
+.bodyClass{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: aqua;
+}
+
+.playerOne{
+   position: absolute; 
+   left: 5%;
+   top: 50%;
+}
+
+.playerTwo{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+}
+
+
+body{
+    font-family: 'Calibri', 'Sans-Serif';
+    text-align: center;
+    background-color: aqua;
+}
+
+#poolTable{
+    position: absolute;
+    width: 500px;
+    height: 700px;
+}
+/* svg{
+    width: 400px;
+    height: 400px;
+} */

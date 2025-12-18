@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Menu Page : 8 Ball Pool</title>
+        <link rel="stylesheet" href="menu.css">
+    </head>
+
+    <body class="inputForm" >
+            <h1>Welcome to 8 Ball Pool</h1>
+            <form id="playerForm" action="/submit-player-names" method="post">
+                <label>Enter Game Name: </label> <br> <br>
+                <input type="text" name="gameName" placeholder="Game Name"> <br><br>
+                <label>Enter Player One Name: </label> <br> <br>
+                <input type="text" name="player_one" placeholder="Player One"> <br><br>
+                <label>Enter Player Two Name: </label> <br> <br>
+                <input type="text" name="player_two" placeholder="Player Two"> <br> <br>
+                <button type="submit">Submit</button>
+            </form>
+    </body>
+    <script>
+        document.getElementById('playerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            var player1Name = document.querySelector('input[name="player_one"]').value;
+            var player2Name = document.querySelector('input[name="player_two"]').value;
+            var formData = new FormData(this); // Create FormData object from form data
+            var xhr = new XMLHttpRequest(); // Create XMLHttpRequest object
+            
+            xhr.open('POST', '/submit-player-names', true); // Open POST request to server endpoint
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Request was successful
+                        const redirect_url = `/webpage.html?player1Name=${player1Name}&player2Name=${player2Name}`;
+                        window.location.href = redirect_url; // Redirect to the game page
+                    } else {
+                        // Error handling
+                        console.error('Request failed:', xhr.status);
+                    }
+                }
+            };
+            
+            xhr.send(new URLSearchParams(formData)); // Send form data
+        });
+    </script>
+</html>
