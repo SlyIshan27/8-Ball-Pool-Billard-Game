@@ -48,7 +48,7 @@ python3 webpage.py <PORT>
 ### Starting the game
 ![Demo2](ReadmeSRCFiles/PoolDemo2.gif)
 ### Taking Shots (Sorry for poor quality of the GIF)
-![Demo3]![Demo1](ReadmeSRCFiles/PoolDemo3Edited.gif)
+![Demo3](ReadmeSRCFiles/PoolDemo3Edited.gif)
 ---
 
 ## Technologies Used
