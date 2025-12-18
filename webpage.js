@@ -32,10 +32,11 @@ function trackon() {
 function removeLine(event){
 
     if (removeLineEnabled && track && animationFinished) {
+        
         if(event.target.getAttribute('fill') !== 'WHITE'){
             removeLineEnabled = false
             animationFinished = false
-        
+            document.getElementById("Loading").style.display = 'flex';
             line.remove();
             cueBallClicked = false; // Reset cue ball clicked
             // track = false;
@@ -76,6 +77,7 @@ function removeLine(event){
                             var svgString = xhr.responseText;
                             var svgs = svgString.split("---");
                             // console.log("Success FINALLLY: ", svgs);
+                            document.getElementById("Loading").style.display = 'none';
                             animateSVG(svgs);
                         } catch (e){
                             console.error("Error:", e);
@@ -173,6 +175,7 @@ function animateSVG(svgData) {
             clearInterval(intervalId); // Stop the interval when all SVGs have been rendered
             console.log("Animation completed");
             animationFinished = true;
+            
             processShot(lastSVG);
         }
     }, 10); // Adjust the delay (in milliseconds) between each SVG rendering as needed
@@ -255,7 +258,6 @@ function processShot(lastSVG){
     };
     var data = JSON.stringify({ result: result });
     xhr.send(data);
-
     if(turn == 1){
         turn = 2
         console.log("Hit Turn Change 1");
