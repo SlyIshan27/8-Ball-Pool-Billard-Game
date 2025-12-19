@@ -119,7 +119,7 @@ This allows the frame‑by‑frame animation of shots.
 
 All game state is persisted to `phylib.db`.
 
-### 📦 Tables
+### Tables
 
 | Table       | Description               |
 | ----------- | ------------------------- |
